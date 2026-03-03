@@ -1,0 +1,27 @@
+# Reglas del proyecto — IoT Dashboard
+
+## Stack
+- React 18 con hooks funcionales únicamente
+- Vite como bundler
+- Supabase JS v2 para todas las queries a la base de datos
+- TailwindCSS v3 para todos los estilos, sin CSS custom salvo casos excepcionales
+- react-router-dom v6 para navegación
+
+## Convenciones de código
+- El cliente de Supabase siempre se importa desde @/lib/supabase (usar alias si está configurado, sino ruta relativa)
+- Todos los componentes van en /src/components
+- Todas las páginas (vistas) van en /src/pages
+- Usar async/await, nunca .then() ni .catch()
+- Siempre manejar los tres estados en componentes con fetch: loading, error y data
+- Los errores de Supabase se loguean con console.error y se muestran al usuario con un mensaje simple
+
+## Base de datos
+- Las tablas son: buildings, rooms, sensors, measurements
+- Los IDs son UUID generados por Supabase, nunca crearlos en el frontend
+- Para la última medición de un sensor: query a measurements filtrado por sensor_id, order recorded_at desc, limit 1
+
+## Lo que NO hacer
+- No usar Redux, Zustand ni Context API para datos remotos
+- No usar CSS Modules ni styled-components
+- No crear archivos separados de tipos o interfaces (no es TypeScript)
+- No instalar librerías adicionales sin indicación explícita
