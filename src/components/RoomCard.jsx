@@ -33,7 +33,7 @@ export default function RoomCard({ room, onEdit, onDelete }) {
     >
       <div className="relative h-24 overflow-hidden bg-gradient-to-br from-purple-600/30 via-gray-700/80 to-gray-800">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_40%,rgba(139,92,246,0.1)_100%)]" />
-        <div className="absolute right-3 top-3" ref={menuRef}>
+        <div className="absolute right-3 top-3 z-20" ref={menuRef}>
           <button
             type="button"
             onClick={(e) => {
@@ -50,7 +50,7 @@ export default function RoomCard({ room, onEdit, onDelete }) {
           </button>
           {menuOpen && (
             <div
-              className="absolute right-0 top-full z-10 mt-1 min-w-[140px] rounded-lg border border-gray-700 bg-gray-800 py-1 shadow-xl"
+              className="absolute right-0 top-full z-30 mt-1 min-w-[140px] rounded-lg border border-gray-700 bg-gray-800 py-1 shadow-xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
